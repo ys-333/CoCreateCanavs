@@ -1,7 +1,8 @@
+import Forms from './components/Forms'
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
+    <div className="container">
+      <Forms />
     </div>
   )
 }
