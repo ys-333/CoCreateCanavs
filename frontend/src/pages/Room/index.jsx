@@ -6,6 +6,8 @@ const RoomPage = () => {
   const [tool, setTool] = useState('pencil')
   const [color, setColor] = useState('black')
 
+  console.log('hello world');
+
   return (
     <div className="row">
       <h1 className="text-center py-5">White Board Sharing App</h1>
