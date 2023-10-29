@@ -6,7 +6,7 @@ const RoomPage = () => {
   const [tool, setTool] = useState('pencil')
   const [color, setColor] = useState('black')
 
-  console.log('hello world');
+  console.log('hello world and save');
 
   return (
     <div className="row">
