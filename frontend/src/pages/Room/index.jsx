@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import './index.css'
 
@@ -7,8 +7,10 @@ import WhiteBoard from '../../components/Whiteboard'
 const RoomPage = () => {
   const [tool, setTool] = useState('pencil')
   const [color, setColor] = useState('black')
+  const [element, setElement] = useState(null)
 
-  console.log('hello world and save')
+  const canvasRef = useRef(null)
+  const ctxRef = useRef(null)
 
   return (
     <div className="row">
@@ -81,7 +83,12 @@ const RoomPage = () => {
         </div>
       </div>
       <div className="col-md-10 border mt-4 canvas-box">
-        <WhiteBoard />
+        <WhiteBoard
+          canvasRef={canvasRef}
+          ctxRef={ctxRef}
+          element={element}
+          setElement={setElement}
+        />
       </div>
     </div>
   )
