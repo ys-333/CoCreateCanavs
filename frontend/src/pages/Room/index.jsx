@@ -9,8 +9,6 @@ const RoomPage = () => {
   const [color, setColor] = useState('black')
   const [element, setElement] = useState([])
 
-  console.log(element)
-
   const canvasRef = useRef(null)
   const ctxRef = useRef(null)
 
