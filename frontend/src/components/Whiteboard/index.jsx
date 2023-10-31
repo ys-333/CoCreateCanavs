@@ -16,16 +16,18 @@ const WhiteBoard = ({ canvasRef, ctxRef, element, setElement }) => {
   const mouseDownHandler = (e) => {
     const { offsetX, offsetY } = e.nativeEvent
 
-    setElement((prev) => [
-      ...prev,
-      {
-        type: 'pencil',
-        offsetX,
-        offsetY,
-        path: [[offsetX, offsetY]],
-        storke: 'black',
-      },
-    ])
+    setElement((prev) => {
+      return [
+        ...prev,
+        {
+          type: 'pencil',
+          offsetX,
+          offsetY,
+          path: [[offsetX, offsetY]],
+          storke: 'black',
+        },
+      ]
+    })
 
     setIsDrawing(true)
   }
@@ -33,9 +35,22 @@ const WhiteBoard = ({ canvasRef, ctxRef, element, setElement }) => {
     const { offsetX, offsetY } = e.nativeEvent
 
     if (isDrawing) {
+      // if (element.length === 0) return
       const { path } = element[element.length - 1]
       const newpath = [...path, [offsetX, offsetY]]
-      // setElement((prev))
+
+      setElement((prev) => {
+        return prev.map((ele, index) => {
+          if (index === element.length - 1) {
+            return {
+              ...ele,
+              path: newpath,
+            }
+          } else {
+            return ele
+          }
+        })
+      })
     }
   }
   const mouseUpHandler = (e) => {
